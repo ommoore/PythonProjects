@@ -1,0 +1,35 @@
+//Trinamic Controller Inits
+SGP 65, 0, 0    	//set serial baud rate
+SAP 159, 0, 6    	//set commutation mode (FOC Hall Sensor)
+SAP 254, 0, 1    	//set hall sensor invert
+SAP 253, 0, 20    	//set motor poles
+SAP 177, 0, 4000    //set start current [mA] (peak)
+SAP 6, 0, 6250    	//set max current [mA] (peak)
+SAP 4, 0, 1800    	//set max velocity [rpm]
+SAP 11, 0, 500   	//set acceleration [rpm/s]
+
+//Motor Control (PI) Inits
+SAP 172, 0, 600    	//set torque P
+SAP 173, 0, 1000    //set torque I
+SAP 234, 0, 20175   //set velocity P
+SAP 235, 0, 20175   //set velocity I
+SAP 230, 0, 300    	//set position P
+
+//Acceleration (CW) in Position Mode (to destination)
+SAP 1, 0, 0    		//set actual position
+SAP 146, 0, 1    	//enable velocity ramp
+SAP 0, 0, 5730    	//set target position
+WAIT POS, 0, 5730   //wait until target position is reached
+
+//Waiting at destination
+WAIT TICKS, 0, 0    //unload/load at station
+
+//Aceleration (CCW) in Position Mode (back home)
+SAP 0, 0, 0   		//set target position
+WAIT POS, 0, 0		//wait for position 0
+SAP 1, 0, 0    		//set actual position
+SAP 146, 0, 0 		//disable velocity ramp
+
+//End
+MST 0				//stop motor
+STOP  				//end program
