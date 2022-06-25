@@ -17,15 +17,15 @@
 
   **Directory Contents:**
 ```
-SHL_TrinamicHubMotor
-│-  README.md
-│-  position_mode_script.tmc  //Direct command script for Trinamic Software TMCL direct mode
-|-  RPi_TMCM.py               //User Application  
+**SHL_TrinamicHubMotor**
+│ -  README.md
+│ -  position_mode_script.tmc  //Direct command script for Trinamic Software TMCL direct mode
+| -  RPi_TMCM.py               //User Application  
 | 
-└───TMCL                      //TMCL - Trinamic Motor Control Library : NativeDesign, Alan Pich
-    |-  __init__.py
-    │-  bus.py
-    │-  commands.py
-    |-  motor.py
-    |-  reply.py
+└───TMCL                       //TMCL - Trinamic Motor Control Library : NativeDesign, Alan Pich
+    | - __init__.py
+    │ - bus.py
+    │ - commands.py
+    | - motor.py
+    | - reply.py
 ```
