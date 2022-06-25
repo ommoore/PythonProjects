@@ -15,7 +15,7 @@
   - (x8) Venom Flight Pack 5000 LiPo - 25C 5000mAH 14.8V packs 
          2S1P per TMCM/BB-1630 module. 29.6V 5Ah Secondary Battery Pack
 
-  **Files:**
+  **Project Directory:**
 ```
 SHL_TrinamicHubMotor
 │-  README.md
