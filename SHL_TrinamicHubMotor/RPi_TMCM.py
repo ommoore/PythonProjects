@@ -27,44 +27,47 @@ Hardware:
 import sys
 #Raspberry Pi Python version (from 2018)
 sys.path.append("/home/pi/.local/lib/python2.7/site-packages")
-#sys.path.append('./TMCL')
+#sys.path.append("./TMCL")
 from serial import Serial
 import math
 import TMCL
 
-## **Initializations**
 ## serial-address as set on the TMCM module.
 MODULE_ADDRESS = 1
 
-print("Serial port start")
+print("Connecting to USB serial ports..")
 ## Open the USB serial ports
 serial_port0 = Serial("/dev/ttyACM0")
 serial_port1 = Serial("/dev/ttyACM1")
 serial_port2 = Serial("/dev/ttyACM2")
 serial_port3 = Serial("/dev/ttyACM3")
 
-print('Serial port initialized.')
+print("Connecting to TMCL serial busses..")
 ## Create a Bus instance using the open serial port
 bus0 = TMCL.connect(serial_port0)
 bus1 = TMCL.connect(serial_port1)
 bus2 = TMCL.connect(serial_port2)
 bus3 = TMCL.connect(serial_port3)
 
-## Get the motors
+print("Creating motor modules..")
+## Create motor modules
 motor0 = bus0.get_motor(MODULE_ADDRESS)
 motor1 = bus1.get_motor(MODULE_ADDRESS)
 motor2 = bus2.get_motor(MODULE_ADDRESS)
 motor3 = bus3.get_motor(MODULE_ADDRESS)
 
+print("Restarting Trinamic Module Timers..")
 ## Restart/Reinitialize the Trinamic Module Timers
 motor0.send(5,31,0,0)
 motor1.send(5,31,0,0)
 motor2.send(5,31,0,0)
 motor3.send(5,31,0,0)
 
-## **API Definitions**
+## //////////// API Definitions ////////////
+## Motor parameter initializations
 def motorParam():
     ## TMCL-IDE Commands
+	print("Initializing motor parameters..")
     
     ##set commutation mode (FOC Hall Sensor)
     motor0.send(5, 159, 0, 6)
@@ -204,13 +207,12 @@ def rev():
     motor3.send(5, 146, 0, 0)
     print("Motor 3 Velocity Ramp: %s" % (motor0.send(6,146,0,0)))
 
-    ##MST 0              stop motor
+    ##MST 0              	stop motor
     print("Motors stopped.")
     motor0.send(3, 0, 0, 0)
     motor1.send(3, 0, 0, 0)
     motor2.send(3, 0, 0, 0)
     motor3.send(3, 0, 0, 0)
-
 
 def readMotor0RPM():
     print("Motor 0 RPM: %s" % (motor0.send(6,3,0,0)))
@@ -293,7 +295,6 @@ def readBoard3Voltage():
     print("Trinamic 3 Supply Voltage(V): %s" % (motor3.send(6,151,0,0)))
     return motor3.send(6,151,0,0)
 
-
 def readModule0RunTime(): 
     print("Trinamic 0 Runtime(min): %s" % (motor0.send(6,30,0,0)))
     return motor0.send(6,30,0,0)
@@ -306,7 +307,6 @@ def readModule2RunTime():
 def readModule3RunTime(): 
     print("Trinamic 3 Runtime(min): %s" % (motor3.send(6,30,0,0)))
     return motor3.send(6,30,0,0)
-
 
 def readErrorFlags0():
     print("Trinamic 0 Error Flags: %s" % (motor0.send(6,156,0,0)))
@@ -334,21 +334,18 @@ def clearIIT3():
     print("Clearing IIT flags of Module 3..")
     motor3.send(6,29,0,0)
 
-
 def readIIT0():
     print("Motor 0 Thermal Winding Constant: %s" % (motor0.send(6,25,0,0)))
     print("Motor 0 IIT Limit: %s" % (motor0.send(6,26,0,0)))
     print("Motor 0 IIT Sum: %s" % (motor0.send(6,27,0,0)))
     print("Motor 0 IIT Exceed Counter: %s" % (motor0.send(6,28,0,0)))
     return motor0.send(6,27,0,0)
-
 def readIIT1():
     print("Motor 1 Thermal Winding Constant: %s" % (motor1.send(6,25,0,0)))
     print("Motor 1 IIT Limit: %s" % (motor1.send(6,26,0,0)))
     print("Motor 1 IIT Sum: %s" % (motor1.send(6,27,0,0)))
     print("Motor 1 IIT Exceed Counter: %s" % (motor1.send(6,28,0,0)))
     return motor1.send(6,27,0,0)
-
 def readIIT2():
     print("Motor 2 Thermal Winding Constant: %s" % (motor2.send(6,25,0,0)))
     print("Motor 2 IIT Limit: %s" % (motor2.send(6,26,0,0)))
@@ -362,7 +359,7 @@ def readIIT3():
     print("Motor 3 IIT Exceed Counter: %s" % (motor3.send(6,28,0,0)))
     return motor3.send(6,27,0,0)
 
-## **Application**
+## //////////// Application ////////////
 motorParam()
 while(1):
     fwd()
