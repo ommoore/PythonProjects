@@ -1,10 +1,23 @@
 # PythonProjects
 
+## PiCamera_RemoteRec
+  **Description:** \
+  	A Raspberry Pi project to remotely record an event using a PiCamera circular stream and PyAudio microphone capture stream. Video (.h264) and
+	audio (.wav) captures are muxed using FFmpeg (.mkv) and saved to the Pi's integrated SD card. The AV stream recordings are remotely triggered
+	by an interrupt signal originating from an Arduino GPIO connected to GPIO pin 5 on the Pi. Interrupt could be generated from a sensor reading,
+	timer, or other event.
+  
+  **Hardware:**
+  - Raspberry Pi 3 B+
+  - Raspberry Pi Camera Module 2
+  - Adafruit Mini USB microphone
+  - Arduino Mega2560
+	
 ## SHL_TrinamicHubMotor
   **Description:** \
-  Trinamic Motor Command Library (TMCL) with own API and testbench script designed by the Spartan Hyperloop 3 (2018) propulsion team for motor control. \
-  (4x) Synchronous single-axis in-hub BLDC motors are connected to (4x) TMCM-1630 driver/BB-1630 baseboard modules. TMCL commands are sent over USB \
-  from Raspberry Pi to (4x) TMCM modules, with RS232, RS485, and CAN as alternative options. Currently testing position-mode PI tracking with forward \
+  Trinamic Motor Command Library (TMCL) with own API and testbench script designed by the Spartan Hyperloop 3 (2018) propulsion team for motor control.
+  (4x) Synchronous single-axis in-hub BLDC motors are connected to (4x) TMCM-1630 driver/BB-1630 baseboard modules. TMCL commands are sent over USB
+  from Raspberry Pi to (4x) TMCM modules, with RS232, RS485, and CAN as alternative options. Currently testing position-mode PI tracking with forward
   and reverse operations.
 
   **Hardware:**
