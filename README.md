@@ -3,8 +3,8 @@
 ## PiCamera_RemoteRec
   **Description:** \
   A Raspberry Pi project to remotely record an event using a PiCamera circular stream and PyAudio microphone capture stream. Video (.h264) and
-  audio (.wav) captures are muxed using FFmpeg (.mkv) and saved to the Pi's integrated SD card. The AV stream recordings are remotely triggered
-  by an interrupt signal originating from an Arduino GPIO connected to GPIO pin 5 on the Pi. Interrupt could be generated from a sensor reading,
+  audio (.wav) captures are muxed using FFmpeg (.mkv) and saved to the Pi's integrated SD card. The AV stream recordings are triggered
+  by an interrupt signal originating from an Arduino GPIO connected to pin 5 on the Pi. The interrupt could be generated from a sensor reading,
   timer, or other event.
   
   **Hardware:**
@@ -21,10 +21,10 @@
 
 ## SHL_TrinamicHubMotor
   **Description:** \
-  Trinamic Motor Command Library (TMCL) with user library and testing designed by the Spartan Hyperloop 3 (2018) propulsion team for pod motor control for 
-  the SpaceX Hyperloop Competition. (4x) Synchronous single-axis wheel-hub brushless DC (BLDC) motors are connected to (4x) TMCM-1630 driver/BB-1630 baseboard 
-  modules. TMCL commands are sent over USB from Raspberry Pi to (4x) TMCM modules, with RS232, RS485, and CAN as alternative options. Currently testing 
-  position-mode PI tracking with forward and reverse operations.
+  Trinamic Motor Command Library (TMCL) paired with a user library and test application designed by the Spartan Hyperloop 3 (2018) propulsion team to achieve 
+  pod motor control for the SpaceX Hyperloop Competition. (4x) Synchronous single-axis wheel-hub brushless DC (BLDC) motors are connected to 
+  (4x) TMCM-1630 driver/BB-1630 baseboard modules. TMCL commands are sent over USB from Raspberry Pi to (4x) TMCM modules, with RS232, RS485, and CAN as 
+  alternative options. Currently testing position-mode PI tracking with four-quadrant motor operations (forward/reverse + acceleration/braking).
 
   **Hardware:**
   - (x4) (70mm x 80mm x 115mm) low-noise E-WHEELIN wheel-hub BLDC motors
