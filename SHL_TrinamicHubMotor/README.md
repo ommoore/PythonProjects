@@ -1,9 +1,9 @@
 # SHL_TrinamicHubMotor
   **Description:** \
-  Trinamic Motor Command Library (TMCL) with own API and testbench script designed by the Spartan Hyperloop 3 (2018) propulsion team for motor control. 
-  (4x) Synchronous single-axis in-hub BLDC motors are connected to (4x) TMCM-1630 driver/BB-1630 baseboard modules. TMCL commands are sent over USB 
-  from Raspberry Pi to (4x) TMCM modules, with RS232, RS485, and CAN as alternative options. Currently testing position-mode PI tracking with forward 
-  and reverse operations.
+Trinamic Motor Command Library (TMCL) paired with a user library and test application designed by the Spartan Hyperloop 3 (2018) propulsion team to achieve pod motor 
+control for the SpaceX Hyperloop Competition. (4x) Synchronous single-axis wheel-hub brushless DC (BLDC) motors are connected to (4x) TMCM-1630 driver/BB-1630 baseboard 
+modules. TMCL commands are sent over USB from Raspberry Pi to (4x) TMCM modules, with RS232, RS485, and CAN as alternative options. Currently testing position-mode PI 
+tracking with four-quadrant motor operations (forward/reverse + acceleration/braking).
 
   **Hardware:**
   - (x4) (70mm x 80mm x 115mm) low-noise E-WHEELIN in-hub brushless DC motors
