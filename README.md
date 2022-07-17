@@ -1,5 +1,27 @@
 # PythonProjects
 
+## DATAQ_CSV
+  **Description:** \
+  Python test app for the retrieval and storage of DAQ analog sensor data.
+  Using DATAQ Instruments DI-4718B DAQ with DI-8B41-02 +/-5V amplifier 
+  modules to read analog sensor data from SM9236 differential pressure 
+  sensor, FS4000 mass flow sensor, and E18-D80NK IR proximity sensor. Test 
+  app expects user keypress to start, stop, reset, and exit. Timestamped 
+  analog sensor data is stored in .csv format and user-prompted filename 
+  will be checked for uniqueness, to avoid overwriting existing saved data.
+  WinDAQ software can be used to view and verify the data directly from DAQ.
+  
+  **Hardware:**
+  - DATAQ Instruments DI-4718B 8-channel Ethernet Data Logger and Data 
+    Acquisition System for DI-8B Amplifiers.
+  - (x3) DI-8B41-02 Isolated ±5V 1kHz bandwidth 8B-style Amplifier modules
+  - SM9236 Differential Pressure Sensor (Analog 0-5V)
+  - FS4000 Mass Flow Sensor (Analog 0-5V)
+  - E18-D80NK Infrared Proximity Sensor (Analog 0-5V)
+    
+  **Software:**
+  - WinDAQ Recording and Playback Software (free) (optional)
+	
 ## PiCamera_RemoteRec
   **Description:** \
   A Raspberry Pi project to remotely record an event using a PiCamera circular stream and PyAudio microphone capture stream. Video (.h264) and
@@ -35,3 +57,7 @@
   - (x1) Raspberry Pi 3 Model B+
   - (x8) Venom Flight Pack 5000 LiPo - 25C 5000mAH 14.8V packs 
          2S1P per TMCM/BB-1630 module. 29.6V 5Ah Secondary Battery Pack
+
+  **Software:**
+  - TMCM-BLDC-FOC
+  - TMCL-IDE 3.0
