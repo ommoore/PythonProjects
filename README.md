@@ -2,7 +2,7 @@
 
 ## DATAQ_CSV
   **Description:** \
-  Python test app for the retrieval and storage of DAQ analog sensor data.
+  Python app to read DAQ analog sensor data and store as csv file.
   Using DATAQ Instruments DI-4718B DAQ with DI-8B41-02 +/-5V amplifier 
   modules to read analog sensor data from SM9236 differential pressure 
   sensor, FS4000 mass flow sensor, and E18-D80NK IR proximity sensor. Test 
